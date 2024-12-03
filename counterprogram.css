@@ -1,0 +1,16 @@
+#myCounter{
+    display: block;
+    font-size: 1000%;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+#btnContainer{
+    color: rgb(218, 221, 220);
+    text-align: center;
+}
+.buttons{
+    background-color: rgb(45, 45, 145);
+    color: aliceblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
