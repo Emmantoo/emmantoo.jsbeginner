@@ -1,0 +1,15 @@
+<DOCTYPE html>
+    <html lang=en-us>
+         <body>
+            
+             <h1 id="fheader">Welcome to this website</h1>
+             <button id="myButton">Click</button>
+        </body>
+    <script>
+ document.getElementById("myButton"). onclick = function(){
+
+    document.getElementById("fheader"). innerText =`Goodbye!`
+
+ }
+    </script>
+    <html>
