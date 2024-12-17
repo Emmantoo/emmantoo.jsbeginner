@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<h1 id="h1">Welcome</h1>
+  <label>First Name </label>
+    <input type="text" id="fName"><br>
+  <label>Last Name</label>
+    <input type="text" id="lName"><br><br>
+
+    <button id="myButton">Submit</button>
+
+</body>
+<script>
+let firstName;
+let lastName;
+
+document.getElementById("myButton"). onclick = function(){
+
+  firstName = document.getElementById("fName"). value;
+
+  document.getElementById("h1"). textContent =  `Welcome ${firstName}!`;
+
+  
+}
