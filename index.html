@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>profile card</title>
+</head>
+<body>
+    <style>
+        body{
+            font-size: 150%;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            height: 100px;
+            margin: 0;
+            transition: background-colour 0.03sec ease,colour0.03 ease;
+        }
+        body.light-theme{
+            background-color: white;
+            color: #000;
+        }
+        body.dark-theme{
+            background-color: #5a5959;
+            color: white;
+        }
+        #profileCard{
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgb(0,  0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width:fit-content;
+            height: fit-content;
+            border-top: 0;
+            margin-top: 20px;
+        }
+        #additionalInfohidden{
+            text-align: center;
+        padding-top: 2px;
+        }
+        img{
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+        #buttons{
+            display: flex;
+            width: 100%;
+            
+        }
+        .button{
+            margin: 30px;
+            padding: 10px;
+            border-radius: 10px;
+            border: 0;
+            font-size: 100%;
+            text-align: center;
+        }
+        
+        #infoBtn{
+            background-color: rgb(68, 68, 240);
+            color: white;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+        .button:hover{
+            cursor: pointer;
+        }
+    </style>
+  <div id="profileCard">
+
+        <div id="profilePhoto">
+            <!--This Image used is from Internal storage you acn use yours to see the result-->
+            <Img src="20231030_211948_mfnr - Copy.jpg" alt="profile photo">
+        </div>
+        <div id="name">
+            <p><b>Emmanuel Kipchumba</b> <br>Web Developer </p>
+        </div>
+        <div id="additionalInfohidden"></div>
+        <div id="buttons">
+            <button id="infoBtn" class="button">Show Info</button>
+        </div>
+  </div>
+</body>
+<!--The use of Java sceript object properties is shown Below-->
+<script src="index.js">
+    const person = {
+    FirstName:"Emmanuel",
+    lastName:"Kipchumba",
+    Email: "emmanuelkipchumba@gmail.com",
+    phoneNumber:"0797323219",
+
+}
+ let hideInfo=document.getElementById("toggleBtn");
+ let showInfo = document.getElementById('infoBtn');
+
+
+ showInfo = document.getElementById('infoBtn').onclick= function(){
+//Here is the usage of
+    document.getElementById("additionalInfohidden"). innerHTML=
+"<b>Email:</b>" +person.Email+"<br>"+"<b>Phone Number:</b>" + person.phoneNumber ;
+    };
+    console.log(person);
+    
+
+</script>
+</html>
