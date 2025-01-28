@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="exam.css">
+    <title>Exams</title>
+    <style>
+        body {
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+        #heading {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: rgb(211, 164, 164);
+            border: 2px solid black;
+            border-radius: 8px;
+        }
+        #questions {
+            background-color: gray;
+            border-radius: 5px;
+        }
+        h5 {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 15px;
+        }
+        label {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            cursor: pointer;
+        }
+        #mySubmitBtn {
+            margin-left: 25%;
+            margin-right: 25%;
+            width: 50%;
+            margin-top: 10px;
+            background-color: rgb(211, 164, 164);
+            border-radius: 5px;
+            border: 1px solid black;
+            height: 40px;
+            color: hwb(0 9% 91%);
+        }
+    </style>
+</head>
+<body>
+    <div id="heading"><h4>ANSWER THE QUESTIONS BELOW</h4></div>
+    <div id="questions">
+        <div id="quiz1" class="question">
+            <h5>1. What is the capital city of France?</h5>
+            <input type="radio" name="answer1" id="nAnswer1">
+            <label for="nAnswer1">Berlin</label><br>
+            <input type="radio" name="answer1" id="nAnswer2">
+            <label for="nAnswer2">Rome</label><br>
+            <input type="radio" name="answer1" id="correct1">
+            <label for="correct1">Paris</label><br>
+            <input type="radio" name="answer1" id="nAnswer3">
+            <label for="nAnswer3">Madrid</label>
+        </div>
+        <div id="quiz2" class="question">
+            <h5>2. Which planet is closest to the Sun?</h5>
+            <input type="radio" name="answer2" id="noAnswer1">
+            <label for="noAnswer1">Earth</label><br>
+            <input type="radio" name="answer2" id="noAnswer2">
+            <label for="noAnswer2">Mars</label><br>
+            <input type="radio" name="answer2" id="noAnswer3">
+            <label for="noAnswer3">Venus</label><br>
+            <input type="radio" name="answer2" id="correct2">
+            <label for="correct2">Mercury</label>
+        </div>
+        <div id="quiz3" class="question">
+            <h5>3. What is the chemical symbol for Gold?</h5>
+            <input type="radio" name="answer3" id="correct3">
+            <label for="correct3">Ag</label><br>
+            <input type="radio" name="answer3" id="notAnswer1">
+            <label for="notAnswer1">Au</label><br>
+            <input type="radio" name="answer3" id="notAnswer2">
+            <label for="notAnswer2">Fe</label><br>
+            <input type="radio" name="answer3" id="notAnswer3">
+            <label for="notAnswer3">Hg</label>
+        </div>
+        <div id="quiz4" class="question">
+            <h5>4. Who painted the Mona Lisa?</h5>
+            <input type="radio" name="answer4" id="nottAnswer1">
+            <label for="nottAnswer1">Michelangelo</label><br>
+            <input type="radio" name="answer4" id="nottAnswer2">
+            <label for="nottAnswer2">Vincent van Gogh</label><br>
+            <input type="radio" name="answer4" id="correct4">
+            <label for="correct4">Leonardo da Vinci</label><br>
+            <input type="radio" name="answer4" id="nottAnswer3">
+            <label for="nottAnswer3">Donatello</label>
+        </div>
+        <div id="quiz5" class="question">
+            <h5>5. What part of a car is used to stop it?</h5>
+            <input type="radio" name="answer5" id="notttAnswer1">
+            <label for="notttAnswer1">Steering wheel</label><br>
+            <input type="radio" name="answer5" id="notttAnswer2">
+            <label for="notttAnswer2">Engine</label><br>
+            <input type="radio" name="answer5" id="correct5">
+            <label for="correct5">Brakes</label><br>
+            <input type="radio" name="answer5" id="notttAnswer3">
+            <label for="notttAnswer3">Seats</label>
+        </div>
+        <div>
+            <button id="mySubmitBtn">Submit</button>
+        </div>
+        <input type="text" id="score" placeholder="Total score" disabled>
+    </div>
+
+<script>
+const mySubmitBtn = document.getElementById("mySubmitBtn");
+const scoreInput = document.getElementById("score");
+let score = 0;
+
+mySubmitBtn.onclick = function() {
+    score = 0;
+
+    const questions = [
+        { correctAnswer: "correct1", options: ["nAnswer1", "nAnswer2", "nAnswer3"] },
+        { correctAnswer: "correct2", options: ["noAnswer1", "noAnswer2", "noAnswer3"] },
+        { correctAnswer: "correct3", options: ["notAnswer1", "notAnswer2", "notAnswer3"] },
+        { correctAnswer: "correct4", options: ["nottAnswer1", "nottAnswer2", "nottAnswer3"] },
+        { correctAnswer: "correct5", options: ["notttAnswer1", "notttAnswer2", "notttAnswer3"] },
+    ];
+
+    for (let i = 0; i < questions.length; i++) {
+        const { correctAnswer, options } = questions[i];
+
+        if (document.getElementById(correctAnswer).checked) {
+            document.getElementById(correctAnswer).nextElementSibling.style.color = "green";
+            score++;
+        } else {
+            document.getElementById(correctAnswer).nextElementSibling.style.color = "green";
+            options.forEach(option => {
+                if (document.getElementById(option).checked) {
+                    document.getElementById(option).nextElementSibling.style.color = "red";
+                }
+            });
+        }
+    }
+
+    scoreInput.value = `Score: ${score} out of ${questions.length}`;
+
+    if (score === questions.length) {
+        alert("All answers are correct!");
+    } else if (score === 0) {
+        alert("None of your answers are correct.");
+    } else {
+        alert(`${score} answers are correct!`);
+    }
+};
+</script>
+</body>
+</html>
